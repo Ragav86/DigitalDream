@@ -1,8 +1,12 @@
 import streamlit as st
 import pandas as pd
 import json
+from PIL import Image
 
 from agent import query_agent, create_agent
+
+
+
 
 
 def decode_response(response: str) -> dict:
@@ -53,7 +57,16 @@ def write_response(response_dict: dict):
         st.table(df)
 
 
-st.title("👨‍💻 Chat with DB")
+st.set_page_config(
+        page_title="Digital Dream",
+        page_icon="👋",
+    )
+
+image = Image.open('Banner.png')
+
+st.image(image, width=850, use_column_width="auto")
+
+st.header("Welcome to Digital Dream", divider='blue')
 
 query = st.text_area("Insert your query")
 
@@ -63,9 +76,10 @@ if st.button("Submit Query", type="primary"):
 
     # Query the agent.
     response = query_agent(agent=agent, query=query)
-
+    print(response)
     # Decode the response.
-    decoded_response = decode_response(response)
+    #decoded_response = decode_response(response)
 
     # Write the response to the Streamlit app.
-    write_response(decoded_response)
+    #write_response(response)
+    st.write(response)

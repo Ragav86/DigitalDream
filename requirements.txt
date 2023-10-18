@@ -1,6 +1,5 @@
-langchain
-openai
-streamlit
-python-dotenv
-pandas
-langchain_experimental
+langchain~=0.0.316
+streamlit~=1.27.2
+python-dotenv~=1.0.0
+pandas~=2.1.1
+Pillow~=10.1.0

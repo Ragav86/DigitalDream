@@ -92,7 +92,6 @@ def query_agent(agent, query):
     )
 
     # Run the prompt through the agent.
-    response = agent.run(prompt)
-    print(pd.json_normalize(response))
+    response = agent.run(query)
     # Convert the response to a string.
     return response.__str__()
